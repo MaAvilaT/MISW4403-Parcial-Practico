@@ -141,3 +141,5 @@ dist
 *.iws
 *.ipr
 .idea_modules/
+
+**.db
