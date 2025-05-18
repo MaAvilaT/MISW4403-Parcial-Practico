@@ -11,7 +11,14 @@ export class CreateRestaurantDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsIn(['Italian', 'Japanese', 'Mexican', 'Colombian', 'Indian', 'International'])
+  @IsIn([
+    'Italian',
+    'Japanese',
+    'Mexican',
+    'Colombian',
+    'Indian',
+    'International',
+  ])
   readonly cuisineType: string;
 
   @IsUrl()
@@ -30,7 +37,14 @@ export class UpdateRestaurantDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsIn(['Italian', 'Japanese', 'Mexican', 'Colombian', 'Indian', 'International'])
+  @IsIn([
+    'Italian',
+    'Japanese',
+    'Mexican',
+    'Colombian',
+    'Indian',
+    'International',
+  ])
   readonly cuisineType?: string;
 
   @IsUrl()

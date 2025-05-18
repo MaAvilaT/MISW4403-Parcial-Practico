@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 import { Dish } from '../dish/dish.entity';
 
 @Entity()
@@ -18,7 +24,7 @@ export class Restaurant {
   @Column()
   website: string;
 
-  @ManyToMany(() => Dish, dish => dish.restaurants)
+  @ManyToMany(() => Dish, (dish) => dish.restaurants)
   @JoinTable()
   dishes: Dish[];
 }

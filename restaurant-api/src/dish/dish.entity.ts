@@ -18,6 +18,6 @@ export class Dish {
   @Column()
   category: string;
 
-  @ManyToMany(() => Restaurant, restaurant => restaurant.dishes)
+  @ManyToMany(() => Restaurant, (restaurant) => restaurant.dishes)
   restaurants: Restaurant[];
 }

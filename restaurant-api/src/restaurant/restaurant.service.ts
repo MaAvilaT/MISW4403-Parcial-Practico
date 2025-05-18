@@ -16,15 +16,15 @@ export class RestaurantService {
   }
 
   async findOne(id: number): Promise<Restaurant> {
-    const restaurant = await this.restaurantRepository.findOne({ 
+    const restaurant = await this.restaurantRepository.findOne({
       where: { id },
-      relations: ['dishes']
+      relations: ['dishes'],
     });
-    
+
     if (!restaurant) {
       throw new NotFoundException(`Restaurant with ID ${id} not found`);
     }
-    
+
     return restaurant;
   }
 
@@ -33,16 +33,19 @@ export class RestaurantService {
     return this.restaurantRepository.save(restaurant);
   }
 
-  async update(id: number, updateRestaurantDto: UpdateRestaurantDto): Promise<Restaurant> {
+  async update(
+    id: number,
+    updateRestaurantDto: UpdateRestaurantDto,
+  ): Promise<Restaurant> {
     const restaurant = await this.findOne(id);
-    
+
     this.restaurantRepository.merge(restaurant, updateRestaurantDto);
     return this.restaurantRepository.save(restaurant);
   }
 
   async delete(id: number): Promise<void> {
     const restaurant = await this.findOne(id);
-    
+
     await this.restaurantRepository.remove(restaurant);
   }
 }

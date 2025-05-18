@@ -16,15 +16,15 @@ export class DishService {
   }
 
   async findOne(id: number): Promise<Dish> {
-    const dish = await this.dishRepository.findOne({ 
+    const dish = await this.dishRepository.findOne({
       where: { id },
-      relations: ['restaurants']
+      relations: ['restaurants'],
     });
-    
+
     if (!dish) {
       throw new NotFoundException(`Dish with ID ${id} not found`);
     }
-    
+
     return dish;
   }
 
@@ -35,14 +35,14 @@ export class DishService {
 
   async update(id: number, updateDishDto: UpdateDishDto): Promise<Dish> {
     const dish = await this.findOne(id);
-    
+
     this.dishRepository.merge(dish, updateDishDto);
     return this.dishRepository.save(dish);
   }
 
   async delete(id: number): Promise<void> {
     const dish = await this.findOne(id);
-    
+
     await this.dishRepository.remove(dish);
   }
 }
