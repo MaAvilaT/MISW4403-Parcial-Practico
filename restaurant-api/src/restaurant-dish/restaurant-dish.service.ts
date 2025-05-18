@@ -72,6 +72,14 @@ export class RestaurantDishService {
     dishId: number,
   ): Promise<Restaurant> {
     const restaurant = await this.restaurantService.findOne(restaurantId);
+
+    const dishExists = restaurant.dishes.some((dish) => dish.id === dishId);
+    if (!dishExists) {
+      throw new NotFoundException(
+        `Dish with ID ${dishId} not found in restaurant with ID ${restaurantId}`,
+      );
+    }
+
     restaurant.dishes = restaurant.dishes.filter((dish) => dish.id !== dishId);
 
     return this.restaurantRepository.save(restaurant);
