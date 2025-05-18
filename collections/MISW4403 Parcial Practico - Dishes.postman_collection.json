@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "e380d55d-a4ed-42aa-8e0d-41d9d52d4b4f",
+		"name": "MISW4403 Parcial Practico - Dishes Collection",
+		"description": "base_url = http://localhost:3000",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44015449"
+	},
+	"item": [
+		{
+			"name": "Dishes",
+			"item": [
+				{
+					"name": "create valid dish",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Spaghetti Carbonara\",\n    \"description\": \"Classic Italian pasta dish with eggs, cheese, pancetta, and black pepper\",\n    \"price\": 15.99,\n    \"category\": \"main course\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/dishes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create invalid dish",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Invalid Dish\",\n    \"description\": \"This dish has an invalid category and negative price\",\n    \"price\": -5.99,\n    \"category\": \"invalid category\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/dishes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all dishes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/dishes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get dish by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/dishes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get dish by invalid id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/dishes/9999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update valid dish",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Spaghetti Carbonara\",\n    \"description\": \"Deluxe version of the classic Italian pasta dish\",\n    \"price\": 18.99,\n    \"category\": \"main course\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/dishes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update invalid dish",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"This Will Not Update\",\n    \"description\": \"This dish does not exist\",\n    \"price\": 10.99,\n    \"category\": \"starter\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/dishes/9999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete dish by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Trattoria\",\n    \"address\": \"123 Main Street, Suite 200\",\n    \"cuisineType\": \"Italian\",\n    \"website\": \"https://updated-trattoria.com\"\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/dishes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete dish by invalid id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Trattoria\",\n    \"address\": \"123 Main Street, Suite 200\",\n    \"cuisineType\": \"Italian\",\n    \"website\": \"https://updated-trattoria.com\"\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/dishes/9999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dishes",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

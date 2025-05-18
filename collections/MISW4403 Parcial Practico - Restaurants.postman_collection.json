@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "5b5d4a1e-ba43-42b8-aa1d-4b0016a9530f",
+		"name": "MISW4403 Parcial Practico - Restaurants Collection",
+		"description": "base_url = http://localhost:3000",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44015449"
+	},
+	"item": [
+		{
+			"name": "Restaurants",
+			"item": [
+				{
+					"name": "create valid restaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Trattoria Italiana\",\n    \"address\": \"123 Main Street\",\n    \"cuisineType\": \"Italian\",\n    \"website\": \"https://trattoria-italiana.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/restaurants",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create invalid restaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Invalid Restaurant\",\n    \"address\": \"456 Side Street\",\n    \"cuisineType\": \"French\",\n    \"website\": \"https://invalid-restaurant.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/restaurants",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/restaurants",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get restaurant by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/restaurants/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get restaurant by invalid id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/restaurants/9999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update valid restaurant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Trattoria\",\n    \"address\": \"123 Main Street, Suite 200\",\n    \"cuisineType\": \"Italian\",\n    \"website\": \"https://updated-trattoria.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/restaurants/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update invalid restaurant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Trattoria\",\n    \"address\": \"123 Main Street, Suite 200\",\n    \"cuisineType\": \"Italian\",\n    \"website\": \"https://updated-trattoria.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/restaurants/9999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete restaurant by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Trattoria\",\n    \"address\": \"123 Main Street, Suite 200\",\n    \"cuisineType\": \"Italian\",\n    \"website\": \"https://updated-trattoria.com\"\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/restaurants/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete restaurant by invalid id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Trattoria\",\n    \"address\": \"123 Main Street, Suite 200\",\n    \"cuisineType\": \"Italian\",\n    \"website\": \"https://updated-trattoria.com\"\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/restaurants/9999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"restaurants",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
